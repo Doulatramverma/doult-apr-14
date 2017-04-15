@@ -12,6 +12,12 @@
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </p>
+   <p>
+     <%= f.label :video %>
+     <%=f.file_field :video%>
+
+   </p>
+
  <p>
   <%#=f.select :category_id,[['all', 1], ['co', 2],['view',3],['new',4]] %>
 <%=f.select(:category_id, Category.all.collect {|u| [u.name, u.id]},:prompt => 'Select Category') %>

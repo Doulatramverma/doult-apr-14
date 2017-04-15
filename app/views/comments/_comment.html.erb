@@ -9,7 +9,10 @@
 </p>
  
 <p>
+<%= link_to 'Edit Comment', edit_blog_comment_path(@blog, comment)%>  ||
+
   <%= link_to 'Destroy Comment', [comment.blog, comment],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' } %> 
+
 </p>
