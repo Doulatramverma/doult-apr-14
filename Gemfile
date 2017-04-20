@@ -55,4 +55,4 @@ gem 'carrierwave'
  gem 'devise'
  gem 'activeadmin', github: 'activeadmin'
 gem 'bootstrap-sass', '~> 3.3.6'
-
+gem 'mini_magick', '3.8.0'

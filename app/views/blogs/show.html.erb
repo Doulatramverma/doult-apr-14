@@ -1,31 +1,35 @@
  
   
- <p>
-   <%if @blog.category_id.present? %>
-
-    <strong>Category:</strong>
-    <%=Category.find(@blog.category_id).name%>
-    <%end%>
- </p>
+<p>
+ <%if @blog.category_id.present? %>
+ <strong>Category:</strong>
+ <%=Category.find(@blog.category_id).name%>
+ <%end%>
+</p>
   
 
- <p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
+<p>
+ <strong>Title:</strong>
+ <%= @blog.title %>
 </p>
  
 <p>
   <strong>Description:</strong>
   <%= @blog.description %>
 </p>
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @blog.image %>
-</p>
 
 <p>
+ <strong>Image:</strong>
+  <%@blog.images.each do |image|%>
+  <%= image_tag image.image,multiple: true, :size => "300x300", :controls => true %>
+  <%end%>
+</p>
+
+
+<p>
+  
   <strong>Video:</strong>
-  <%= video_tag @blog.video %>
+  <%= video_tag @blog.video, :size => "320x240", :controls => true %>
 </p>
 
 <h2>Comments</h2>
@@ -33,5 +37,6 @@
  
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
+
 <%= link_to 'Edit', edit_blog_path(@blog) %>
 <%= link_to 'Back', blogs_path %>
